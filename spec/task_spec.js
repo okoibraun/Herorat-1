@@ -19,4 +19,8 @@ describe('tasks', function(){
     assert.strictEqual(task1.reward, 100)
   })
 
+  it('should be incomplete', function(){
+    assert.strictEqual(task1.completion, false)
+  })
+
 })
