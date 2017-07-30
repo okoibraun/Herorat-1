@@ -8,15 +8,10 @@ describe('Hero Testing', function(){
   beforeEach(function(){
     food1 = new Food("Apple", 20)
     food2 = new Food("Pear", 10)
-    task1 = new Task("Cave Adventure",1,1000)
-    task2 = new Task("lava Adventure",3,190)
-    task3 = new Task("Water Adventure",2,150)
+    task1 = new Task("Cave Adventure",1,1000,true)
+    task2 = new Task("lava Adventure",3,190,false)
+    task3 = new Task("Water Adventure",2,150,false)
     hero1 = new Hero("Steven","Apple")
-    comparison = new Hero("testing", "Apple")
-    comparison.addingTaskeTolist(task3)
-    comparison.addingTaskeTolist(task2)
-    comparison.addingTaskeTolist(task1)
-
   })
 
 
@@ -72,6 +67,20 @@ describe('Hero Testing', function(){
     assert.deepEqual(hero1.tasks, [task1,task3,task2])
   })
 
+  it('is the task complete', function(){
+    hero1.addingTaskeTolist(task1);
+    hero1.addingTaskeTolist(task2);
+    hero1.addingTaskeTolist(task3);
+    assert.deepEqual(hero1.completedTasks(true),[task1])
+  });
+
+
+  it('is the task NOT complete', function(){
+    hero1.addingTaskeTolist(task1);
+    hero1.addingTaskeTolist(task2);
+    hero1.addingTaskeTolist(task3);
+    assert.deepEqual(hero1.completedTasks(false),[task2,task3])
+  });
 
 
 

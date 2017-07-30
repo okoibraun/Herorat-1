@@ -1,4 +1,5 @@
 var Task = require('./task.js')
+var _ = require("lodash")
 
 
 var Hero = function(name, favfood, speak){
@@ -30,6 +31,16 @@ Hero.prototype.eatsomefood = function(food){
   this.tasks.sort(function(a,b){
     return a[search] - b[search];
   });
+
+  Hero.prototype.completedTasks = function(searching){
+    var holdingArray = [];
+    for(var task of this.tasks){
+      if(task["completion"] === searching){
+        holdingArray.push(task);
+      }   
+    }
+        return holdingArray;
+  }
 }
 
 

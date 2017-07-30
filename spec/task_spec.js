@@ -4,7 +4,7 @@ var Task = require('../task.js')
 describe('tasks', function(){
 
   beforeEach(function(){
-    task1 = new Task("Cave Adventure","Medium",100);
+    task1 = new Task("Cave Adventure","Medium",100,false );
   })
 
   it('should have a name', function(){
